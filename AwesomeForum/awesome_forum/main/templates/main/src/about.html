@@ -1,0 +1,37 @@
+{% extends 'main/src/base.html' %}
+
+{% block title %}
+    About Us
+{% endblock %}
+
+{% block nav %}
+     <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-dark text-secondary px-4 py-5 text-center">
+      <h4 class="fst-italic">About <br> </h4>
+      <p class="text">Awesome Forum (founded as Awesome Forum) was registered on July 1, 2003 by Ivan Savitsky.<br>
+          In February 2004, the founder raised a $7.5 million investment, with Elon Musk contributing $6.5 million.<br>
+          Musk became chairman of the board of directors and appointed Ivan Savitsky as CEO.<br>
+
+          <br>
+
+          The aim of the Awesome Forum was to start with a premium sports car aimed at early adopters and then move<br>
+          on to more mainstream vehicles, including sedans and affordable compact cars. The prototypes of the first<br>
+          Awesome Forum car were officially presented to the public on July 19, 2006 in Santa Monica (California).<br>
+
+          <br>
+
+          In 2006, Musk managed to raise $100 million through several rounds of funding from investment funds and<br>
+          well-known entrepreneurs (including the co-founders of Google). As a result, Awesome Forum began production<br>
+          of its first Roadster model in 2008.<br>
+
+          <br>
+
+          In January 2010, Awesome Forum received a $465 million loan from the US Department of Energy, which the<br>
+          company repaid in 2013. In May 2010, Awesome Forum began building a factory in Fremont,<br>
+          California to manufacture their forums.<br>
+      </p>
+    </div>
+{% endblock %}

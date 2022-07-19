@@ -1,0 +1,43 @@
+{% extends 'main/src/base.html' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block nav %}
+    <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a></li>
+    <li><a href="{% url 'forum' %}" class="nav-link px-2 text-white">Forum</a></li>
+    <li><a href="{% url 'about' %}" class="nav-link px-2 text-white">About</a></li>
+{% endblock %}
+
+{% block reg %}
+    <a href="{% url 'logout' %}" class="btn btn-secondary border-dark text-white col-lg-auto">Log out</a>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div><center>
+            <div class="col-md-5 p-lg-5 mx-auto my-5">
+                <div class="col-md-6">
+                  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <h3 class="mb-0">{{ user.username }}</h3>
+                      <div class="mb-1 text-muted">{{ user.date_joined }}</div>
+                      <p class="mb-auto">{{ user.email }}</p>
+                    </div>
+                    <p class="lead fw-normal">
+                          <form method="post">
+                            {% csrf_token %}
+                            Username: <input type="text" class="form-control form-control-dark" name="username"><br>
+                            Password: <input type="password" class="form-control form-control-dark" name="password"><br>
+                            Repeat password: <input type="password" class="form-control form-control-dark" name="password2"><br><br>
+                          </form>
+                      </p>
+                    <center><a href="{% url 'password' %}" class="btn btn-secondary border-dark text-white col-lg-auto">Edit password</a></center>
+                  </div>
+                </div>
+            </div>
+            </center>
+        </div>
+    </main>
+{% endblock %}

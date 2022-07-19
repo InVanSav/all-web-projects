@@ -1,0 +1,43 @@
+{% extends 'main/src/base.html' %}
+
+{% block title %}
+    Additional information
+{% endblock %}
+
+{% block nav %}
+    <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a></li>
+    <li><a href="{% url 'forum' %}" class="nav-link px-2 text-white">Forum</a></li>
+    <li><a href="{% url 'about' %}" class="nav-link px-2 text-white">About</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-dark text-secondary px-4 py-5 text-center">
+      <h4 class="fst-italic">{{ get_post.title }} <br> </h4>
+      <p class="text">{{ get_post.description }}</p><br><br>
+      <p class="text-start">{{ user.username }}</p>
+      <p class="text-start mb-4">{{ get_post.date_time }}</p>
+      <hr>
+      <h5 class="fst-italic mt-4">Comments<br> </h5>
+      <hr>
+      {% for i in comments %}
+        {% if comments %}
+        <div class="my-3 p-3 bg-body rounded shadow-sm">
+        <div class="d-flex text-muted pt-3">
+          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+            <div class="d-flex justify-content-between">
+              <strong class="text-gray-dark">{{ i.text }}</strong>
+              <p>Date: {{ i.date_time }}</p>
+            </div>
+            <span class="d-block">{{ i.user }}</span>
+          </div>
+        </div>
+      </div>
+        {% else %}
+        <h5 class="fst-italic mt-4">Nothing to show yet...<br> </h5>
+        {% endif %}
+      {% endfor %}
+        <br><br><br>
+    </div>
+{% endblock %}

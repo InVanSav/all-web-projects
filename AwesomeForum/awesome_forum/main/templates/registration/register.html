@@ -1,0 +1,36 @@
+{% extends 'main/src/base.html' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block nav %}
+     <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a></li>
+     <li><a href="{% url 'about' %}" class="nav-link px-2 text-white">About</a></li>
+{% endblock %}
+
+{% block reg %}
+    <a href="{% url 'login' %}" class="btn btn-secondary border-dark text-white col-lg-auto">Login</a>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div><center>
+            <div class="col-md-5 p-lg-5 mx-auto my-5">
+              <h1 class="display-4 fw-normal">Registration</h1>
+              <p class="lead fw-normal">
+                  <form method="post">
+                    {% csrf_token %}
+                    Username: <input type="text" class="form-control form-control-dark" name="username"><br>
+                    Email: <input type="email" class="form-control form-control-dark" name="email"><br>
+                    Password: <input type="password" class="form-control form-control-dark" name="password"><br>
+                    Repeat password: <input type="password" class="form-control form-control-dark" name="password2"><br><br>
+
+                    <input type="submit" class="btn btn-secondary" value="Регистрация">
+                  </form>
+              </p>
+            </div>
+            </center>
+        </div>
+    </main>
+{% endblock %}
